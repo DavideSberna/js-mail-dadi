@@ -21,10 +21,18 @@ let users = [
     "Alice battaglia",
     "Micheal sesto",
 ]
-
+const sectionForm = document.querySelector("#email-form")
 const userInput = document.querySelector("#user-input");
 const emailInput = document.querySelector("#email-input");
 const btn = document.querySelector("form button");
+
+const confirms = document.createElement("div");
+const confirmText = document.createElement("p");
+confirms.appendChild(confirmText);
+confirms.classList.add("confirm");
+
+
+
 let indexUser = "";
 let userconfirm = "";
 let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -42,19 +50,29 @@ function emailValidation(){
                 console.log(indexUser, "sei iscritto")
                 if(emailInput.value.match(validRegex)){
                     console.log("Login di "+ " " + indexUser + " " + "effettuato con successo")
+                    sectionForm.appendChild(confirms);
+                    confirmText.innerText = "Account confermato"
                 } else {
                     console.log("Mi spiace"+ " " + indexUser + " " + "la tua email non è corretta")
+                    sectionForm.appendChild(confirms);
+                    confirmText.innerText = "email non corretta"
                 }
                
             } else{
                 console.log("non sei iscritto")
+                sectionForm.appendChild(confirms);
+                confirmText.innerText = "Non sei iscritto"
             }
 
         } else {
             console.log("Inserisci dei valori corretti");
+            sectionForm.appendChild(confirms);
+            confirmText.innerText = "Compila i campi correttamente"
 
         }
     }
+
+
 }
 
 
@@ -76,8 +94,6 @@ btnRandom.addEventListener("click", startRandom);
 function startRandom(){
     let userRandom = Math.floor(Math.random() * (max + 1 - min) + min);
     let botRandom = Math.floor(Math.random() * (max + 1 - min) + min);
-    // console.log(userRandom);
-    // console.log(botRandom);
     if(userRandom > botRandom){
         console.log("Hai vinto! il tuo numero random è" + " " + userRandom, "mentre il numero del Bot è", botRandom)
     } else if(userRandom < botRandom){

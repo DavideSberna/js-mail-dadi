@@ -1,0 +1,28 @@
+.confirm{
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    left: calc(50% - 150px);
+    top: calc(50% - 300px);
+    background-color: white;
+    color: black;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+.notConfirm{
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    left: calc(50% - 150px);
+    top: calc(50% - 300px);
+    background-color: white;
+    color: black;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
